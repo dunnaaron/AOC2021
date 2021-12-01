@@ -2,11 +2,11 @@ import { chai } from '../deps.ts';
 import calcDepthIncreases from './1.ts';
 const expect = chai.expect;
 
-Deno.test('example', () => {
-	const depthValues = [
-		49, 55, 49, 10, 49, 55, 51, 10, 49, 55, 52, 10, 49, 54, 51, 10, 49, 54, 49,
-		10,
-	];
-	const res = calcDepthIncreases(depthValues);
-	expect(res).to.equal(9);
-});
+Deno.test(
+	'returns number of depth increases between three-depth windows',
+	() => {
+		const depthValues = [607, 618, 618, 617, 647, 716, 769, 792];
+		const res = calcDepthIncreases(depthValues);
+		expect(res).to.equal(5);
+	}
+);

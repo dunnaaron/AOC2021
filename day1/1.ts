@@ -6,16 +6,26 @@ const input = decodedInput
 	.map(Number);
 
 const calcDepthIncreases = (depthValues: number[]) => {
-	const totalDepthIncreases = depthValues.reduce(
+	let depthWindowIncreases = 0;
+	depthValues.reduce(
 		(prev: number, curr: number, index: number, arr: number[]) => {
-			return curr < arr[index + 1] ? prev + 1 : prev;
+			if (index + 2 < arr.length) {
+				const threeDepthWindow = curr + arr[index + 1] + arr[index + 2];
+				if (threeDepthWindow > prev && prev !== 0) {
+					depthWindowIncreases += 1;
+				}
+
+				return threeDepthWindow;
+			}
+
+			return prev;
 		},
 		0
 	);
 
-	console.log(totalDepthIncreases);
+	console.log(depthWindowIncreases);
 
-	return totalDepthIncreases;
+	return depthWindowIncreases;
 };
 
 export default calcDepthIncreases;
