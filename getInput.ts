@@ -33,9 +33,9 @@ try {
 			headers: { Cookie: `session=${cookie};` },
 		}
 	);
-	const inputFileBody: string = new Uint8Array(
-		await res.arrayBuffer()
-	).toString();
+
+	const decoder = new TextDecoder('utf-8');
+	const inputFileBody: string = decoder.decode(await res.arrayBuffer());
 
 	await Deno.mkdir(dir);
 
