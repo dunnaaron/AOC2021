@@ -1,11 +1,11 @@
 import { config } from './deps.ts';
 
 const { COOKIE: cookie, YEAR: year } = config();
-const day: string = Deno.args[0] ?? new Date().getDate().toString();
-const dir: string = `./day${day}/`;
-const inputPath: string = dir + `${day}.in`;
-const filePath: string = dir + `${day}.ts`;
-const testPath: string = dir + `${day}.test.ts`;
+const day = Deno.args[0] ?? new Date().getDate().toString();
+const dir = `./day${day}/`;
+const inputPath = dir + `${day}.in`;
+const filePath = dir + `${day}.ts`;
+const testPath = dir + `${day}.test.ts`;
 
 const createInputFile = async (body: string): Promise<void> => {
 	const openedFile: Deno.File = await Deno.open(inputPath, {
