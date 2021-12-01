@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-year=$1
-day=$2
+day=$1
 
-deno run --allow-read --allow-write --allow-net ./getInput.js ${year} ${day}
+deno run --allow-read --allow-write --allow-net ./getInput.ts ${day}
