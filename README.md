@@ -1,18 +1,15 @@
 # Advent of Code 2021
 
-My solutions to Advent of Code 2021 in JavaScript
+My solutions to Advent of Code 2021 in TypeScript
 
 ## Get Started
 
-```bash
-# get and set some AoC env vars
-cat <<EOF >.env
-COOKIE="your AoC cookie"
-YEAR="year of AoC"
-EOF
-yarn install
-# get input for day 1 (or any other day)
-node ./get_input.js 1 > 1.in
-```
+This repo runs using Deno as the runtime.
 
-I stole this setup and readme from @luiscarlin
+To create the file structure for each day, simply run `sh createDay.sh <YEAR> <DAY>`
+
+This will create the directory for the day, get the input file necessary for the puzzle, and create code and test files.
+
+## Run Tests
+
+To run tests, run the following command: `deno test <TEST FILE NAME>`. Tests are written using the Deno test runner and Chai assertion library.
