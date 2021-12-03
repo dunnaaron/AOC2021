@@ -8,14 +8,12 @@ export interface DirectionPair {
 }
 
 interface DirectionValues {
-	forward: number;
 	up: number;
 	down: number;
 	[key: string]: any;
 }
 
 const directionValues: DirectionValues = {
-	forward: 1,
 	up: -1,
 	down: 1,
 };
@@ -31,14 +29,16 @@ export const calcDirections = (
 ): [x: number, y: number] => {
 	let x = 0;
 	let y = 0;
+	let aim = 0;
 
 	parsedDirections.forEach((direction: string) => {
 		const directionPair = parseDirection(direction);
 
 		if (directionPair.direction === 'forward') {
-			x += directionValues[directionPair.direction] * directionPair.distance;
+			x += directionPair.distance;
+			y += directionPair.distance * aim;
 		} else {
-			y += directionValues[directionPair.direction] * directionPair.distance;
+			aim += directionValues[directionPair.direction] * directionPair.distance;
 		}
 	});
 
